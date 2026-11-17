@@ -25,7 +25,7 @@ Gợi ý chia vai:
 
 | Người | Vai | Commit | Test đã thêm hoặc sửa |
 | --- | --- | --- | --- |
-| | | | |
+| Chờ xác nhận họ tên/MSSV (phụ trách Shape C) | Orchestrator + Handoff; security tests | 73ad029 | src/tests/test_orchestrator_security.py: test_orchestrator_handoff_and_trace_omit_sensitive_data; test_orchestrator_unknown_claim_writes_valid_trace |
 
 ## Cá nhân
 
