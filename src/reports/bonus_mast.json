@@ -1,0 +1,344 @@
+{
+  "source_benchmark": "reports/benchmark.json",
+  "method": "rule-based trace and failure-reason classification; synthetic fault variants are reported separately",
+  "public_failure_count": 1,
+  "fault_variant_count": 15,
+  "manually_labeled_count": 16,
+  "by_shape_category": {
+    "fault_handoff_drops_delay": {
+      "system_design": 0,
+      "inter_agent_misalignment": 5,
+      "task_verification": 0
+    },
+    "fault_skips_approval_check": {
+      "system_design": 5,
+      "inter_agent_misalignment": 0,
+      "task_verification": 0
+    },
+    "fault_uses_stale_clause": {
+      "system_design": 0,
+      "inter_agent_misalignment": 0,
+      "task_verification": 5
+    },
+    "swarm": {
+      "system_design": 0,
+      "inter_agent_misalignment": 0,
+      "task_verification": 1
+    }
+  },
+  "public_failures": [
+    {
+      "trial_id": "public:swarm:C-002:55",
+      "shape": "swarm",
+      "claim_id": "C-002",
+      "seed": 55,
+      "reason": "status resolved != denied",
+      "category": "task_verification",
+      "failure_mode": "unverified_ticket_override",
+      "rationale": "A model-derived ticket value overrode the structured order value."
+    }
+  ],
+  "fault_variant_failures": [
+    {
+      "trial_id": "fault_handoff_drops_delay:11",
+      "shape": "fault_handoff_drops_delay",
+      "claim_id": "FAULT-fault_handoff_drops_delay",
+      "seed": 11,
+      "reason": "investigator cannot verify the order delay",
+      "category": "inter_agent_misalignment",
+      "failure_mode": "missing_handoff_context",
+      "rationale": "Handoff omitted required context fields: delay_days."
+    },
+    {
+      "trial_id": "fault_handoff_drops_delay:22",
+      "shape": "fault_handoff_drops_delay",
+      "claim_id": "FAULT-fault_handoff_drops_delay",
+      "seed": 22,
+      "reason": "investigator cannot verify the order delay",
+      "category": "inter_agent_misalignment",
+      "failure_mode": "missing_handoff_context",
+      "rationale": "Handoff omitted required context fields: delay_days."
+    },
+    {
+      "trial_id": "fault_handoff_drops_delay:33",
+      "shape": "fault_handoff_drops_delay",
+      "claim_id": "FAULT-fault_handoff_drops_delay",
+      "seed": 33,
+      "reason": "investigator cannot verify the order delay",
+      "category": "inter_agent_misalignment",
+      "failure_mode": "missing_handoff_context",
+      "rationale": "Handoff omitted required context fields: delay_days."
+    },
+    {
+      "trial_id": "fault_handoff_drops_delay:44",
+      "shape": "fault_handoff_drops_delay",
+      "claim_id": "FAULT-fault_handoff_drops_delay",
+      "seed": 44,
+      "reason": "investigator cannot verify the order delay",
+      "category": "inter_agent_misalignment",
+      "failure_mode": "missing_handoff_context",
+      "rationale": "Handoff omitted required context fields: delay_days."
+    },
+    {
+      "trial_id": "fault_handoff_drops_delay:55",
+      "shape": "fault_handoff_drops_delay",
+      "claim_id": "FAULT-fault_handoff_drops_delay",
+      "seed": 55,
+      "reason": "investigator cannot verify the order delay",
+      "category": "inter_agent_misalignment",
+      "failure_mode": "missing_handoff_context",
+      "rationale": "Handoff omitted required context fields: delay_days."
+    },
+    {
+      "trial_id": "fault_uses_stale_clause:11",
+      "shape": "fault_uses_stale_clause",
+      "claim_id": "FAULT-fault_uses_stale_clause",
+      "seed": 11,
+      "reason": "quote selected a non-current policy clause",
+      "category": "task_verification",
+      "failure_mode": "stale_policy_clause",
+      "rationale": "The trace shows a non-current policy clause in lookup or quote evidence."
+    },
+    {
+      "trial_id": "fault_uses_stale_clause:22",
+      "shape": "fault_uses_stale_clause",
+      "claim_id": "FAULT-fault_uses_stale_clause",
+      "seed": 22,
+      "reason": "quote selected a non-current policy clause",
+      "category": "task_verification",
+      "failure_mode": "stale_policy_clause",
+      "rationale": "The trace shows a non-current policy clause in lookup or quote evidence."
+    },
+    {
+      "trial_id": "fault_uses_stale_clause:33",
+      "shape": "fault_uses_stale_clause",
+      "claim_id": "FAULT-fault_uses_stale_clause",
+      "seed": 33,
+      "reason": "quote selected a non-current policy clause",
+      "category": "task_verification",
+      "failure_mode": "stale_policy_clause",
+      "rationale": "The trace shows a non-current policy clause in lookup or quote evidence."
+    },
+    {
+      "trial_id": "fault_uses_stale_clause:44",
+      "shape": "fault_uses_stale_clause",
+      "claim_id": "FAULT-fault_uses_stale_clause",
+      "seed": 44,
+      "reason": "quote selected a non-current policy clause",
+      "category": "task_verification",
+      "failure_mode": "stale_policy_clause",
+      "rationale": "The trace shows a non-current policy clause in lookup or quote evidence."
+    },
+    {
+      "trial_id": "fault_uses_stale_clause:55",
+      "shape": "fault_uses_stale_clause",
+      "claim_id": "FAULT-fault_uses_stale_clause",
+      "seed": 55,
+      "reason": "quote selected a non-current policy clause",
+      "category": "task_verification",
+      "failure_mode": "stale_policy_clause",
+      "rationale": "The trace shows a non-current policy clause in lookup or quote evidence."
+    },
+    {
+      "trial_id": "fault_skips_approval_check:11",
+      "shape": "fault_skips_approval_check",
+      "claim_id": "FAULT-fault_skips_approval_check",
+      "seed": 11,
+      "reason": "host denied the write because the approval check was skipped",
+      "category": "system_design",
+      "failure_mode": "approval_gate_skipped",
+      "rationale": "The shape skipped its approval check and the host denied the write."
+    },
+    {
+      "trial_id": "fault_skips_approval_check:22",
+      "shape": "fault_skips_approval_check",
+      "claim_id": "FAULT-fault_skips_approval_check",
+      "seed": 22,
+      "reason": "host denied the write because the approval check was skipped",
+      "category": "system_design",
+      "failure_mode": "approval_gate_skipped",
+      "rationale": "The shape skipped its approval check and the host denied the write."
+    },
+    {
+      "trial_id": "fault_skips_approval_check:33",
+      "shape": "fault_skips_approval_check",
+      "claim_id": "FAULT-fault_skips_approval_check",
+      "seed": 33,
+      "reason": "host denied the write because the approval check was skipped",
+      "category": "system_design",
+      "failure_mode": "approval_gate_skipped",
+      "rationale": "The shape skipped its approval check and the host denied the write."
+    },
+    {
+      "trial_id": "fault_skips_approval_check:44",
+      "shape": "fault_skips_approval_check",
+      "claim_id": "FAULT-fault_skips_approval_check",
+      "seed": 44,
+      "reason": "host denied the write because the approval check was skipped",
+      "category": "system_design",
+      "failure_mode": "approval_gate_skipped",
+      "rationale": "The shape skipped its approval check and the host denied the write."
+    },
+    {
+      "trial_id": "fault_skips_approval_check:55",
+      "shape": "fault_skips_approval_check",
+      "claim_id": "FAULT-fault_skips_approval_check",
+      "seed": 55,
+      "reason": "host denied the write because the approval check was skipped",
+      "category": "system_design",
+      "failure_mode": "approval_gate_skipped",
+      "rationale": "The shape skipped its approval check and the host denied the write."
+    }
+  ],
+  "manual_validation": {
+    "labels": [
+      {
+        "trial_id": "public:swarm:C-002:55",
+        "manual_category": "task_verification",
+        "predicted_category": "task_verification",
+        "manual_failure_mode": "unverified_ticket_override",
+        "predicted_failure_mode": "unverified_ticket_override"
+      },
+      {
+        "trial_id": "fault_handoff_drops_delay:11",
+        "manual_category": "inter_agent_misalignment",
+        "predicted_category": "inter_agent_misalignment",
+        "manual_failure_mode": "missing_handoff_context",
+        "predicted_failure_mode": "missing_handoff_context"
+      },
+      {
+        "trial_id": "fault_handoff_drops_delay:22",
+        "manual_category": "inter_agent_misalignment",
+        "predicted_category": "inter_agent_misalignment",
+        "manual_failure_mode": "missing_handoff_context",
+        "predicted_failure_mode": "missing_handoff_context"
+      },
+      {
+        "trial_id": "fault_handoff_drops_delay:33",
+        "manual_category": "inter_agent_misalignment",
+        "predicted_category": "inter_agent_misalignment",
+        "manual_failure_mode": "missing_handoff_context",
+        "predicted_failure_mode": "missing_handoff_context"
+      },
+      {
+        "trial_id": "fault_handoff_drops_delay:44",
+        "manual_category": "inter_agent_misalignment",
+        "predicted_category": "inter_agent_misalignment",
+        "manual_failure_mode": "missing_handoff_context",
+        "predicted_failure_mode": "missing_handoff_context"
+      },
+      {
+        "trial_id": "fault_handoff_drops_delay:55",
+        "manual_category": "inter_agent_misalignment",
+        "predicted_category": "inter_agent_misalignment",
+        "manual_failure_mode": "missing_handoff_context",
+        "predicted_failure_mode": "missing_handoff_context"
+      },
+      {
+        "trial_id": "fault_uses_stale_clause:11",
+        "manual_category": "task_verification",
+        "predicted_category": "task_verification",
+        "manual_failure_mode": "stale_policy_clause",
+        "predicted_failure_mode": "stale_policy_clause"
+      },
+      {
+        "trial_id": "fault_uses_stale_clause:22",
+        "manual_category": "task_verification",
+        "predicted_category": "task_verification",
+        "manual_failure_mode": "stale_policy_clause",
+        "predicted_failure_mode": "stale_policy_clause"
+      },
+      {
+        "trial_id": "fault_uses_stale_clause:33",
+        "manual_category": "task_verification",
+        "predicted_category": "task_verification",
+        "manual_failure_mode": "stale_policy_clause",
+        "predicted_failure_mode": "stale_policy_clause"
+      },
+      {
+        "trial_id": "fault_uses_stale_clause:44",
+        "manual_category": "task_verification",
+        "predicted_category": "task_verification",
+        "manual_failure_mode": "stale_policy_clause",
+        "predicted_failure_mode": "stale_policy_clause"
+      },
+      {
+        "trial_id": "fault_uses_stale_clause:55",
+        "manual_category": "task_verification",
+        "predicted_category": "task_verification",
+        "manual_failure_mode": "stale_policy_clause",
+        "predicted_failure_mode": "stale_policy_clause"
+      },
+      {
+        "trial_id": "fault_skips_approval_check:11",
+        "manual_category": "system_design",
+        "predicted_category": "system_design",
+        "manual_failure_mode": "approval_gate_skipped",
+        "predicted_failure_mode": "approval_gate_skipped"
+      },
+      {
+        "trial_id": "fault_skips_approval_check:22",
+        "manual_category": "system_design",
+        "predicted_category": "system_design",
+        "manual_failure_mode": "approval_gate_skipped",
+        "predicted_failure_mode": "approval_gate_skipped"
+      },
+      {
+        "trial_id": "fault_skips_approval_check:33",
+        "manual_category": "system_design",
+        "predicted_category": "system_design",
+        "manual_failure_mode": "approval_gate_skipped",
+        "predicted_failure_mode": "approval_gate_skipped"
+      },
+      {
+        "trial_id": "fault_skips_approval_check:44",
+        "manual_category": "system_design",
+        "predicted_category": "system_design",
+        "manual_failure_mode": "approval_gate_skipped",
+        "predicted_failure_mode": "approval_gate_skipped"
+      },
+      {
+        "trial_id": "fault_skips_approval_check:55",
+        "manual_category": "system_design",
+        "predicted_category": "system_design",
+        "manual_failure_mode": "approval_gate_skipped",
+        "predicted_failure_mode": "approval_gate_skipped"
+      }
+    ],
+    "n": 16,
+    "observed_agreement": 1.0,
+    "cohen_kappa": 1.0,
+    "manual_counts": {
+      "task_verification": 6,
+      "inter_agent_misalignment": 5,
+      "system_design": 5
+    },
+    "predicted_counts": {
+      "task_verification": 6,
+      "inter_agent_misalignment": 5,
+      "system_design": 5
+    },
+    "confusion_matrix": {
+      "system_design": {
+        "system_design": 5,
+        "inter_agent_misalignment": 0,
+        "task_verification": 0
+      },
+      "inter_agent_misalignment": {
+        "system_design": 0,
+        "inter_agent_misalignment": 5,
+        "task_verification": 0
+      },
+      "task_verification": {
+        "system_design": 0,
+        "inter_agent_misalignment": 0,
+        "task_verification": 6
+      }
+    }
+  },
+  "limitations": [
+    "Fault variants are controlled synthetic cases, not additional production shapes.",
+    "MAST categories are used as an interpretive taxonomy; this small lab set does not validate MAST generally.",
+    "The public benchmark has few failures, so agreement is mainly measured on the 15 controlled fault cases plus labeled public failures."
+  ]
+}

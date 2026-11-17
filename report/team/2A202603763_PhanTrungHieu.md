@@ -1,0 +1,58 @@
+# Báo cáo cá nhân — 2A202603763_PhanTrungHieu
+
+## 1. Thông tin thành viên
+
+- Họ tên: Phan Trung Hiếu
+- MSSV: 2A202603763
+- Email: 26ai.hieupt3@vinuni.edu.vn
+- GitHub: trunghieuph
+- Vai trò: Thành viên số 5 — Eval + Report
+
+## 2. Phần việc phụ trách
+
+- Chạy benchmark bốn shape (`workflow`, `single`, `orchestrator`, `swarm`) trên cùng 14 public claims và các seed `11, 22, 33, 44, 55`.
+- Tổng hợp kết quả để so sánh pass rate, pass^5, seed variance, cost/success và số bước; ghi giới hạn của MockLLM.
+- Chạy crash suite, bổ sung test cho metric p95, và cập nhật ADR, research card, group report theo bằng chứng đo được.
+
+## 3. Đóng góp cụ thể
+
+- Thêm `test_p95_steps_uses_nearest_rank_for_report` trong `src/tests/test_metrics.py`, kiểm tra mean và p95 steps theo quy tắc nearest-rank.
+- Sinh lại `src/reports/benchmark.json` bằng lệnh benchmark chuẩn với bốn shape, 14 claims và năm seed; mỗi shape có 70 trial.
+- Chạy crash suite và sinh `src/reports/crash.json`; kết quả là 20/20.
+- Cập nhật các báo cáo nhóm `report/team/decision_adr.md`, `report/team/research_card.md` và `report/team/group_report.md`.
+- Làm bonus B2: viết tagger MAST đọc benchmark và traces; thêm ba fault variant tổng hợp, 15 nhãn dự kiến, test Cohen's κ, và `report/team/bonus_report.md`.
+- Commit cá nhân: Chưa có; cần ghi hash sau khi commit các thay đổi của mình.
+
+## 4. Bằng chứng
+
+Lệnh benchmark:
+
+```text
+python -m lab8.benchmark --shapes workflow,single,orchestrator,swarm --cases data/public_claims.jsonl --seeds 11,22,33,44,55 --out reports/benchmark.json
+```
+
+Kết quả trong `src/reports/benchmark.json`:
+
+| Shape | Pass rate | Pass^5 | Seed min–max | Variance | Cost/success (VND, mô phỏng) | Mean / p95 steps |
+|---|---:|---:|---:|---:|---:|---:|
+| workflow | 1.0000 | 1.0000 | 1.0000–1.0000 | 0.000000 | 28.80 | 4.43 / 5 |
+| single | 1.0000 | 1.0000 | 1.0000–1.0000 | 0.000000 | 48.89 | 8.14 / 9 |
+| orchestrator | 1.0000 | 1.0000 | 1.0000–1.0000 | 0.000000 | 46.43 | 5.36 / 6 |
+| swarm | 0.9857 | 0.9286 | 0.9286–1.0000 | 0.000816 | 49.57 | 2.80 / 3 |
+
+- Run ID ví dụ trong benchmark: `R-workflow-C-001-s11`, `R-single-C-001-s11`, `R-orchestrator-C-001-s11`, `R-swarm-C-001-s11`.
+- Crash: `src/reports/crash.json` ghi `crash_safety = 20/20`.
+- Test metric và robustness: `python -m pytest -q tests/test_metrics.py tests/test_benchmark_robustness.py` — 6 passed.
+- Bonus B2: `python -m pytest -q tests/test_bonus_mast_tag.py` — 5 passed; `src/reports/bonus_mast.json` gán một public fail vào task verification và phân loại 15 fault case có kiểm soát; agreement = 1.000, Cohen's κ = 1.000.
+- Hidden self-check: `python -m lab8.benchmark --shapes workflow,single,orchestrator --cases "C:\Users\HieuPC\Downloads\student_drop\student_drop\hidden_claims.jsonl" --world "C:\Users\HieuPC\Downloads\student_drop\student_drop\hidden_world_state.json" --seeds 11,22,33,44,55 --out reports/hidden_selfcheck.json`. Mỗi shape chạy 200 trial; `error_trials = 0`, `leak_suspect_trials = 0`. Dataset không có nhãn, nên kết quả này không phải pass rate hidden và không xác nhận ngưỡng 0.75/0.80.
+
+## 5. Công cụ AI đã dùng
+
+- Copilot SDK trong VS Code hỗ trợ rà cấu trúc benchmark/metric, thêm test p95, chạy lệnh benchmark và soạn bản nháp báo cáo.
+- Tự kiểm tra bằng cách chạy lại benchmark chuẩn, đối chiếu các số trong JSON được sinh với bảng trên, chạy crash suite và chạy nhóm test metric/robustness.
+- Dùng `student_drop` chỉ ở chế độ self-check không nhãn; không dùng để suy đoán hay bịa điểm hidden.
+- Các số liệu nộp cần được nhóm kiểm tra lại trên commit cuối; không sửa tay JSON báo cáo.
+
+## 6. Tự đánh giá
+
+Phần eval hiện đã có benchmark public tái lập cho cả bốn shape, kết quả crash suite và test metric p95. Trên public benchmark hiện tại, workflow có cùng pass rate và pass^5 với single/orchestrator nhưng cost/success thấp nhất; vì vậy workflow là lựa chọn tạm thời phù hợp với mục tiêu chọn kiến trúc ít tự chủ nhất. Đây chưa phải quyết định hidden cuối cùng: cần xác nhận must-pass và pass rate hidden trên commit nộp. Hạn chế là MockLLM và giá mô phỏng không đại diện cho production; latency không được đo (`unavailable`).
