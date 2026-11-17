@@ -4,12 +4,12 @@
 `Shape chọn` phải là đúng một trong: `workflow`, `single`, `orchestrator`, `swarm`. Đây là shape được chấm cổng hidden.
 
 - Shape chọn: workflow
-- Commit hash: HEAD `e52ca1c` (benchmark chạy trên working tree; commit chốt còn chờ)
+- Commit hash: HEAD `f0a6ead` (benchmark chạy trên working tree; commit chốt còn chờ)
 - Run id dẫn chứng: `R-workflow-C-001-s11` (`src/reports/benchmark.json`)
 - Pass rate / pass^5 / seed min-max / variance: 1.000 / 1.000 / 1.000–1.000 / 0.000000 (70 public trials, 14 claims × 5 seeds)
 - Cost per success (mô phỏng, VND): 28.80
 - Crash safety: 20/20 (`src/reports/crash.json`); ma trận student: 248 passed
-- Secret leak / approval bypass: 0 / 0 trong public benchmark và student suite; hidden grader chưa chạy
+- Secret leak / approval bypass: 0 / 0 lỗi public; hidden self-check có 0 leak suspect nhưng không có nhãn để tính approval bypass
 
 ## Vì sao shape này
 
@@ -25,4 +25,4 @@ Trace ghi run id và event đã sanitize như tool/status/quote/decision; cố �
 
 ## Giới hạn
 
-MockLLM không phải model sản xuất; cost là mô phỏng và latency là `unavailable`. Bộ `student_drop/` không có trong workspace nên hidden self-check chưa chạy. Benchmark public không đủ để xác nhận cổng hidden; commit cuối và run id cuối cần được cập nhật sau khi nhóm commit toàn bộ thay đổi.
+MockLLM không phải model sản xuất; cost là mô phỏng và latency là `unavailable`. Hidden self-check trên 40 claim × 5 seed cho mỗi shape đã chạy hết 200 trial/shape, không có error hoặc leak suspect; do không có nhãn, kết quả không phải pass rate hidden và không xác nhận ngưỡng 0.75/0.80. Commit cuối cần được cập nhật sau khi nhóm commit toàn bộ thay đổi.

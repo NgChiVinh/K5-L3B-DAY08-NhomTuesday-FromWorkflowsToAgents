@@ -32,7 +32,7 @@ Gợi ý chia vai:
 | Ngô Chí Vĩnh               | Integration + Shape A workflow              | `e7e6d98` CP2/CP3: implement shape A workflow and its tests | `src/tests/test_workflow_shape.py` (18 test: ticket injection, needs_info, unknown claim, model không đổi được tiền, trace sạch)                                                                              |
 | Lê Việt Khoa (2A202603737) | Single agent                                | e3bb3137301681dc779e7b7e31dc9e3a55375915                    | src/tests/test_single_agent.py — test_single_counts_model_calls_and_writes_only_after_readonly_loop; test_single_step_cap_returns_valid_result_without_writing; test_single_crash_at_each_window_resumes_once |
 | Lê Đức Trúc Lâm            | Durability / policy / crash (QA cả 3 shape) | `8ffa0829a986a706b9aea92c5be0bc4b56d7ea87`                  | `src/tests/test_shape_approval_mismatch.py` - test approval của claim khác bị từ chối trên cả ba shape                                                                                                        |
-| Phan Trung Hiếu — 2A202603763 | Eval + Report | Chưa commit | `src/tests/test_metrics.py`: `test_p95_steps_uses_nearest_rank_for_report` |
+| Phan Trung Hiếu — 2A202603763 | Eval + Report; bonus B2 MAST | Chưa commit | `src/tests/test_metrics.py`: `test_p95_steps_uses_nearest_rank_for_report`; `src/tests/test_bonus_mast_tag.py`: MAST tagging, fault cases, Cohen's κ |
 
 ## Cá nhân
 
