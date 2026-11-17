@@ -12,7 +12,7 @@
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
 |   1 | Ngô Chí Vĩnh | 2A202603724 | | NgChiVinh | Nhóm trưởng: Integration + Shape A workflow |
-|   2 | | | | | Shape B single agent |
+|   2 | Lê Việt Khoa | 2A202603737 | levietkhoa2002@gmail.com | Chưa cung cấp | Shape B — Single agent, test budget/trace/retry/crash |
 |   3 | Đỗ Thanh Mai | 2A202603862 | 26ai.maidt@vinuni.edu.vn | | Shape C orchestrator + handoff |
 |   4 | | | | | Durability / policy / crash (QA cả 3 shape) |
 |   5 | | | | | Eval + report (benchmark, ADR, research card) |
@@ -30,6 +30,7 @@ Gợi ý chia vai:
 | --- | --- | --- | --- |
 | Đỗ Thanh Mai — 2A202603862 | Orchestrator + Handoff; security tests | `73ad029` | `src/tests/test_orchestrator_security.py`: `test_orchestrator_handoff_and_trace_omit_sensitive_data`; `test_orchestrator_unknown_claim_writes_valid_trace` |
 | Ngô Chí Vĩnh | Integration + Shape A workflow | `e7e6d98` CP2/CP3: implement shape A workflow and its tests | `src/tests/test_workflow_shape.py` (18 test: ticket injection, needs_info, unknown claim, model không đổi được tiền, trace sạch) |
+| Lê Việt Khoa (2A202603737) | Single agent | e3bb3137301681dc779e7b7e31dc9e3a55375915 | src/tests/test_single_agent.py — test_single_counts_model_calls_and_writes_only_after_readonly_loop; test_single_step_cap_returns_valid_result_without_writing; test_single_crash_at_each_window_resumes_once |
 
 ## Cá nhân
 
@@ -40,6 +41,8 @@ report/team/MSSV_HoTen.md
 ```
 
 Ví dụ: `report/team/20241234_NguyenVanAn.md`.
+
+Báo cáo cá nhân của Lê Việt Khoa: [2A202603737_LeVietKhoa.md](report/team/2A202603737_LeVietKhoa.md).
 
 Sao chép mục dưới đây cho từng thành viên.
 
