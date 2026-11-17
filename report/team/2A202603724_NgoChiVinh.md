@@ -4,7 +4,7 @@
 
 - Họ tên: Ngô Chí Vĩnh
 - MSSV: 2A202603724
-- Email:
+- Email: 26ai.vinhnc2@vinuni.edu.vn
 - GitHub: NgChiVinh
 
 ## 2. Phần việc phụ trách
@@ -61,7 +61,8 @@
 - `python -m pytest -q` (cổng host) → **72 passed** sau khi merge.
 - `python -m lab8.check_submission` → `[ OK ] shape workflow: format đúng, 12/12 claim public pass ở seed 11`; `[ OK ] TEAM.md: bảng đóng góp ...`.
 - Trace mẫu: `src/traces/R-workflow-C-014-s11.json` (T14: quote 150.000, host ghi 120.000; trace chỉ có `claim`, `lookup_order`, `quote`, `issue_refund`, `decision`).
-- Run id benchmark / số liệu workflow: (điền sau khi nhóm chạy benchmark)
+- Benchmark nhóm (`src/reports/benchmark.json`, 14 claim × seed 11,22,33,44,55): workflow pass rate 1.000, pass^5 1.000, variance 0, cost/success 28.80 VND mô phỏng (thấp nhất trong 4 shape); run id dẫn chứng `R-workflow-C-001-s11`.
+- Tự kiểm hidden (`src/reports/hidden_selfcheck.json`): workflow chạy 200/200 trial, 0 lỗi, 0 nghi lộ secret.
 
 ## 5. Công cụ AI đã dùng
 
