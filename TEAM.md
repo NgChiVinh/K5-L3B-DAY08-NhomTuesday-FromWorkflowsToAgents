@@ -2,16 +2,16 @@
 
 ## Thông tin nhóm
 
-- Tên nhóm:
-- Lớp: L3A
-- Repo nhóm: `K5-L3A-DAY08-TenNhom-FromWorkflowsToAgents` (xem [SUBMISSION.md](SUBMISSION.md))
-- URL repo, nhánh nộp, commit chốt:
+- Tên nhóm: NhomTuesday
+- Lớp: L3B
+- Repo nhóm: `K5-L3B-DAY08-NhomTuesday-FromWorkflowsToAgents` (xem [SUBMISSION.md](SUBMISSION.md))
+- URL repo, nhánh nộp, commit chốt: https://github.com/NgChiVinh/K5-L3B-DAY08-NhomTuesday-FromWorkflowsToAgents, nhánh `main`, commit chốt: (điền khi nộp)
 
 ## Thành viên
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-|   1 |        |      |       |        |         |
+|   1 | Lê Việt Khoa | 2A202603737 | levietkhoa2002@gmail.com | Chưa cung cấp | Shape B — Single agent, test budget/trace/retry/crash |
 |   2 |        |      |       |        |         |
 
 Gợi ý chia vai:
@@ -25,7 +25,7 @@ Gợi ý chia vai:
 
 | Người | Vai | Commit | Test đã thêm hoặc sửa |
 | --- | --- | --- | --- |
-| | | | |
+| Lê Việt Khoa (2A202603737) | Single agent | e3bb3137301681dc779e7b7e31dc9e3a55375915 | src/tests/test_single_agent.py — test_single_counts_model_calls_and_writes_only_after_readonly_loop; test_single_step_cap_returns_valid_result_without_writing; test_single_crash_at_each_window_resumes_once |
 
 ## Cá nhân
 
@@ -37,7 +37,28 @@ report/team/MSSV_HoTen.md
 
 Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
+Báo cáo cá nhân của Lê Việt Khoa: [2A202603737_LeVietKhoa.md](report/team/2A202603737_LeVietKhoa.md).
+
 Sao chép mục dưới đây cho từng thành viên.
+
+## 2A202603724_NgoChiVinh
+
+### Phần việc phụ trách
+
+- Nhóm trưởng: tạo repo nhóm, chia vai, review và merge PR, giữ `python -m pytest -q` xanh, chạy `check_submission` trước khi nộp.
+- Shape A `workflow` (`src/lab8/shapes/workflow.py`).
+
+### Đóng góp cụ thể
+
+- Viết workflow: `get_claim_view` → `lookup_order` → `compute_compensation` → `durability.issue_refund` (quote đầy đủ, truyền `crash_at`, không bắt `InjectedCrash`). MockLLM chỉ soạn câu trả lời.
+- Trace chỉ ghi view đã qua allowlist; không ghi ticket, `principal_id`, claim/order row thô.
+- Viết `src/tests/test_workflow_shape.py` (18 test).
+
+### Bằng chứng
+
+- Commit `e7e6d98` trên nhánh `p1-workflow`.
+- `python -m pytest -q -m student -o addopts= -k workflow`: 62 passed.
+- `python -m lab8.check_submission`: `[ OK ] shape workflow: format đúng, 12/12 claim public pass ở seed 11`.
 
 ## MSSV_HoTen
 
