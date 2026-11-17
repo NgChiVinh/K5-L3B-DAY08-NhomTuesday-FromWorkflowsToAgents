@@ -28,9 +28,9 @@ Gợi ý chia vai:
 
 | Người | Vai | Commit | Test đã thêm hoặc sửa |
 | --- | --- | --- | --- |
-| Ngô Chí Vĩnh (2A202603724) | Integration + Shape A workflow | `e7e6d98` CP2/CP3: implement shape A workflow and its tests | `src/tests/test_workflow_shape.py` (18 test: ticket injection, needs_info, unknown claim, model không đổi được tiền, trace sạch) |
-| Lê Việt Khoa (2A202603737) | Single agent | e3bb3137301681dc779e7b7e31dc9e3a55375915 | src/tests/test_single_agent.py — test_single_counts_model_calls_and_writes_only_after_readonly_loop; test_single_step_cap_returns_valid_result_without_writing; test_single_crash_at_each_window_resumes_once |
 | Đỗ Thanh Mai — 2A202603862 | Orchestrator + Handoff; security tests | `73ad029` | `src/tests/test_orchestrator_security.py`: `test_orchestrator_handoff_and_trace_omit_sensitive_data`; `test_orchestrator_unknown_claim_writes_valid_trace` |
+| Ngô Chí Vĩnh | Integration + Shape A workflow | `e7e6d98` CP2/CP3: implement shape A workflow and its tests | `src/tests/test_workflow_shape.py` (18 test: ticket injection, needs_info, unknown claim, model không đổi được tiền, trace sạch) |
+| Lê Việt Khoa (2A202603737) | Single agent | e3bb3137301681dc779e7b7e31dc9e3a55375915 | src/tests/test_single_agent.py — test_single_counts_model_calls_and_writes_only_after_readonly_loop; test_single_step_cap_returns_valid_result_without_writing; test_single_crash_at_each_window_resumes_once |
 
 ## Cá nhân
 
@@ -87,17 +87,3 @@ Sao chép mục dưới đây cho từng thành viên.
 - `python -m pytest -q -m student -o addopts= -k orchestrator`: 62 passed.
 - Cổng host tại lần kiểm tra Shape C trước integration: 56 passed, 248 deselected.
 - Run id minh họa: `R-orchestrator-C-001-s11`; trace không commit theo quy định repo.
-
-## MSSV_HoTen
-
-### Phần việc phụ trách
-
--
-
-### Đóng góp cụ thể
-
--
-
-### Bằng chứng
-
--
