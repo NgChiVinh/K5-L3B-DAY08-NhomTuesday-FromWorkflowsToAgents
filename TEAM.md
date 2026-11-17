@@ -9,13 +9,13 @@
 
 ## Thành viên
 
-| STT | Họ tên | MSSV | Email | GitHub | Vai trò |
-| --: | ------ | ---- | ----- | ------ | ------- |
-|   1 | Ngô Chí Vĩnh | 2A202603724 | | NgChiVinh | Nhóm trưởng: Integration + Shape A workflow |
-|   2 | Lê Việt Khoa | 2A202603737 | levietkhoa2002@gmail.com | Chưa cung cấp | Shape B — Single agent, test budget/trace/retry/crash |
-|   3 | Đỗ Thanh Mai | 2A202603862 | 26ai.maidt@vinuni.edu.vn | | Shape C orchestrator + handoff |
-|   4 | | | | | Durability / policy / crash (QA cả 3 shape) |
-|   5 | | | | | Eval + report (benchmark, ADR, research card) |
+| STT | Họ tên          | MSSV        | Email                     | GitHub        | Vai trò |
+| --: |-----------------|-------------|---------------------------|---------------| ------- |
+|   1 | Ngô Chí Vĩnh    | 2A202603724 |                           | NgChiVinh     | Nhóm trưởng: Integration + Shape A workflow |
+|   2 | Lê Việt Khoa    | 2A202603737 | levietkhoa2002@gmail.com  | Chưa cung cấp | Shape B — Single agent, test budget/trace/retry/crash |
+|   3 | Đỗ Thanh Mai    | 2A202603862 | 26ai.maidt@vinuni.edu.vn  |               | Shape C orchestrator + handoff |
+|   4 | Lê Đức Trúc Lâm | 2A202603787 | 26ai.lamldt@vinuni.edu.vn | truclamld     | Durability / policy / crash (QA cả 3 shape) |
+|   5 |                 |             |                           |               | Eval + report (benchmark, ADR, research card) |
 
 Gợi ý chia vai:
 
@@ -26,11 +26,12 @@ Gợi ý chia vai:
 
 `python -m lab8.check_submission` đọc bảng này bằng máy: giữ nguyên tiêu đề `## Bảng đóng góp` và các cột. Mỗi người một dòng: commit có nội dung và ít nhất một test đã thêm hoặc sửa.
 
-| Người | Vai | Commit | Test đã thêm hoặc sửa |
-| --- | --- | --- | --- |
-| Đỗ Thanh Mai — 2A202603862 | Orchestrator + Handoff; security tests | `73ad029` | `src/tests/test_orchestrator_security.py`: `test_orchestrator_handoff_and_trace_omit_sensitive_data`; `test_orchestrator_unknown_claim_writes_valid_trace` |
-| Ngô Chí Vĩnh | Integration + Shape A workflow | `e7e6d98` CP2/CP3: implement shape A workflow and its tests | `src/tests/test_workflow_shape.py` (18 test: ticket injection, needs_info, unknown claim, model không đổi được tiền, trace sạch) |
-| Lê Việt Khoa (2A202603737) | Single agent | e3bb3137301681dc779e7b7e31dc9e3a55375915 | src/tests/test_single_agent.py — test_single_counts_model_calls_and_writes_only_after_readonly_loop; test_single_step_cap_returns_valid_result_without_writing; test_single_crash_at_each_window_resumes_once |
+| Người                      | Vai                                         | Commit                                                      | Test đã thêm hoặc sửa                                                                                                                                                                                         |
+|----------------------------|---------------------------------------------|-------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Đỗ Thanh Mai — 2A202603862 | Orchestrator + Handoff; security tests      | `73ad029`                                                   | `src/tests/test_orchestrator_security.py`: `test_orchestrator_handoff_and_trace_omit_sensitive_data`; `test_orchestrator_unknown_claim_writes_valid_trace`                                                    |
+| Ngô Chí Vĩnh               | Integration + Shape A workflow              | `e7e6d98` CP2/CP3: implement shape A workflow and its tests | `src/tests/test_workflow_shape.py` (18 test: ticket injection, needs_info, unknown claim, model không đổi được tiền, trace sạch)                                                                              |
+| Lê Việt Khoa (2A202603737) | Single agent                                | e3bb3137301681dc779e7b7e31dc9e3a55375915                    | src/tests/test_single_agent.py — test_single_counts_model_calls_and_writes_only_after_readonly_loop; test_single_step_cap_returns_valid_result_without_writing; test_single_crash_at_each_window_resumes_once |
+| Lê Đức Trúc Lâm            | Durability / policy / crash (QA cả 3 shape) | `8ffa0829a986a706b9aea92c5be0bc4b56d7ea87`                  | `src/tests/test_shape_approval_mismatch.py` - test approval của claim khác bị từ chối trên cả ba shape                                                                                                        |
 
 ## Cá nhân
 
@@ -87,3 +88,29 @@ Sao chép mục dưới đây cho từng thành viên.
 - `python -m pytest -q -m student -o addopts= -k orchestrator`: 62 passed.
 - Cổng host tại lần kiểm tra Shape C trước integration: 56 passed, 248 deselected.
 - Run id minh họa: `R-orchestrator-C-001-s11`; trace không commit theo quy định repo.
+
+## 2A202603787_LeDucTrucLam
+
+## Phần việc phụ trách
+
+Shape, module hoặc phần báo cáo bạn phụ trách.
+
+- Phụ trách QA và kiểm tra các shape (workflow, single và orchestrator) đáp ứng yêu cầu must-pass và đạt crash safety (20/20).
+
+
+## Đóng góp cụ thể
+
+Commit chính (hash), test đã thêm hoặc sửa, quyết định kỹ thuật bạn đưa ra.
+
+- Commit chính: 8ffa0829a986a706b9aea92c5be0bc4b56d7ea87
+- Chạy ma trận student cho cả ba shape và crash suite; kết quả: cả ba shape pass, crash safety 20/20.
+- Thêm test `test_wrong_claim_approval_is_denied` cho cả ba shape. Test xác nhận approval thuộc claim khác bị từ chối, không tạo refund trong ledger và host ghi audit `policy_denied`.
+- Khi test ban đầu trả `failed`, phát hiện fixture chưa thêm claim `C-BORROW`; thêm claim vào database test với approval của claim khác để test đi đến bước kiểm tra policy, sau đó chạy lại thành công.
+
+## Bằng chứng
+
+Link commit, tên test, run id hoặc trích đoạn report liên quan.
+
+- Chạy test `python -m pytest -q` và `python -m pytest -q -m student -o addopts=` đều trả về passed, không có failed.
+- Chạy crash test đạt crash safety 20/20, cụ thể trong file src/reports/crash.json
+- Test mới chạy thành công trên cả 3 shape.
