@@ -5,7 +5,8 @@
 - Họ tên: Đỗ Thanh Mai.
 - MSSV: 2A202603862.
 - Email: 26ai.maidt@vinuni.edu.vn
-- GitHub: (https://github.com/NgChiVinh/K5-L3B-DAY08-NhomTuesday-FromWorkflowsToAgents.git)
+- GitHub cá nhân: Chưa cung cấp.
+- Repo nhóm: https://github.com/NgChiVinh/K5-L3B-DAY08-NhomTuesday-FromWorkflowsToAgents
 
 ## 2. Phần việc phụ trách
 
@@ -28,7 +29,7 @@ khi hai shape được tích hợp.
 ## 4. Bằng chứng
 
 - Test bảo mật: 2 passed.
-- Cổng host: 56 passed, 248 deselected.
+- Cổng host tại lần kiểm tra Shape C trước integration: 56 passed, 248 deselected.
 - Ma trận orchestrator: 62 passed.
 - Run id minh họa: `R-orchestrator-C-001-s11` (trace không commit).
 - Chi tiết rà soát và giới hạn: `orchestrator_security_review.md`.
