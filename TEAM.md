@@ -5,15 +5,15 @@
 - Tên nhóm: NhomTuesday
 - Lớp: L3B
 - Repo nhóm: `K5-L3B-DAY08-NhomTuesday-FromWorkflowsToAgents` (xem [SUBMISSION.md](SUBMISSION.md))
-- URL repo, nhánh nộp, commit chốt: https://github.com/NgChiVinh/K5-L3B-DAY08-NhomTuesday-FromWorkflowsToAgents, nhánh `main`, commit chốt: (điền khi nộp)
+- URL repo, nhánh nộp, commit chốt: https://github.com/NgChiVinh/K5-L3B-DAY08-NhomTuesday-FromWorkflowsToAgents, nhánh `main`, commit chốt: `27b35cc`
 
 ## Thành viên
 
 | STT | Họ tên          | MSSV        | Email                     | GitHub        | Vai trò |
 | --: |-----------------|-------------|---------------------------|---------------| ------- |
-|   1 | Ngô Chí Vĩnh    | 2A202603724 |                           | NgChiVinh     | Nhóm trưởng: Integration + Shape A workflow |
-|   2 | Lê Việt Khoa    | 2A202603737 | levietkhoa2002@gmail.com  | Chưa cung cấp | Shape B — Single agent, test budget/trace/retry/crash |
-|   3 | Đỗ Thanh Mai    | 2A202603862 | 26ai.maidt@vinuni.edu.vn  |               | Shape C orchestrator + handoff |
+|   1 | Ngô Chí Vĩnh    | 2A202603724 | 26ai.vinhnc2@vinuni.edu.vn | NgChiVinh     | Nhóm trưởng: Integration + Shape A workflow |
+|   2 | Lê Việt Khoa    | 2A202603737 | levietkhoa2002@gmail.com  | khoa-asta     | Shape B — Single agent, test budget/trace/retry/crash |
+|   3 | Đỗ Thanh Mai    | 2A202603862 | 26ai.maidt@vinuni.edu.vn  | Laurent2526   | Shape C orchestrator + handoff |
 |   4 | Lê Đức Trúc Lâm | 2A202603787 | 26ai.lamldt@vinuni.edu.vn | truclamld     | Durability / policy / crash (QA cả 3 shape) |
 |   5 | Phan Trung Hiếu | 2A202603763 | 26ai.hieupt3@vinuni.edu.vn | trunghieuph  | Eval + report (benchmark, ADR, research card) |
 
@@ -32,7 +32,7 @@ Gợi ý chia vai:
 | Ngô Chí Vĩnh               | Integration + Shape A workflow              | `e7e6d98` CP2/CP3: implement shape A workflow and its tests | `src/tests/test_workflow_shape.py` (18 test: ticket injection, needs_info, unknown claim, model không đổi được tiền, trace sạch)                                                                              |
 | Lê Việt Khoa (2A202603737) | Single agent                                | e3bb3137301681dc779e7b7e31dc9e3a55375915                    | src/tests/test_single_agent.py — test_single_counts_model_calls_and_writes_only_after_readonly_loop; test_single_step_cap_returns_valid_result_without_writing; test_single_crash_at_each_window_resumes_once |
 | Lê Đức Trúc Lâm            | Durability / policy / crash (QA cả 3 shape) | `8ffa0829a986a706b9aea92c5be0bc4b56d7ea87`                  | `src/tests/test_shape_approval_mismatch.py` - test approval của claim khác bị từ chối trên cả ba shape                                                                                                        |
-| Phan Trung Hiếu — 2A202603763 | Eval + Report; bonus B2 MAST | Chưa commit | `src/tests/test_metrics.py`: `test_p95_steps_uses_nearest_rank_for_report`; `src/tests/test_bonus_mast_tag.py`: MAST tagging, fault cases, Cohen's κ |
+| Phan Trung Hiếu — 2A202603763 | Eval + Report; bonus B2 MAST | `f0a6ead` session 5 - eval + report; `eb47a34` working bonus | `src/tests/test_metrics.py`: `test_p95_steps_uses_nearest_rank_for_report`; `src/tests/test_bonus_mast_tag.py`: MAST tagging, fault cases, Cohen's κ |
 
 ## Cá nhân
 
