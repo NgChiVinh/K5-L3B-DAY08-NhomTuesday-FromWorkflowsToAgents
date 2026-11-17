@@ -170,3 +170,19 @@ def test_single_crash_at_each_window_resumes_once(public_db, point):
     assert result.status == replay.status == "resolved"
     assert len(replay.refund_effects) == replay.committed_audit_count == 1
     assert replay.refund_effects[0]["amount_vnd"] == 35000
+
+
+def test_single_changed_quote_on_retry_preserves_committed_refund(public_db):
+    first = single.run_claim("C-001", seed=11, store_path=str(public_db))
+    assert first.status == "resolved"
+    conn = connect(public_db)
+    try:
+        conn.execute("UPDATE orders SET shipping_fee_vnd = 25000 WHERE order_id = 'O-107'")
+        conn.commit()
+    finally:
+        conn.close()
+
+    retry = single.run_claim("C-001", seed=11, store_path=str(public_db))
+    assert (retry.status, retry.error_reason, retry.proposal_amount) == ("failed", "amount_conflict", 25000)
+    assert retry.refund_effects == first.refund_effects
+    assert retry.committed_audit_count == 1

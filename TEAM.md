@@ -11,7 +11,7 @@
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-|   1 |        |      |       |        |         |
+|   1 | Lê Việt Khoa | 2A202603737 | levietkhoa2002@gmail.com | Chưa cung cấp | Shape B — Single agent, test budget/trace/retry/crash |
 |   2 |        |      |       |        |         |
 
 Gợi ý chia vai:
@@ -25,7 +25,7 @@ Gợi ý chia vai:
 
 | Người | Vai | Commit | Test đã thêm hoặc sửa |
 | --- | --- | --- | --- |
-| | | | |
+| Lê Việt Khoa (2A202603737) | Single agent | e3bb3137301681dc779e7b7e31dc9e3a55375915 | src/tests/test_single_agent.py — test_single_counts_model_calls_and_writes_only_after_readonly_loop; test_single_step_cap_returns_valid_result_without_writing; test_single_crash_at_each_window_resumes_once |
 
 ## Cá nhân
 
@@ -36,6 +36,8 @@ report/team/MSSV_HoTen.md
 ```
 
 Ví dụ: `report/team/20241234_NguyenVanAn.md`.
+
+Báo cáo cá nhân của Lê Việt Khoa: [2A202603737_LeVietKhoa.md](report/team/2A202603737_LeVietKhoa.md).
 
 Sao chép mục dưới đây cho từng thành viên.
 
