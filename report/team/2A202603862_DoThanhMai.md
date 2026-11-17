@@ -1,14 +1,11 @@
-# Báo cáo cá nhân — Orchestrator + Handoff (bản nháp)
-
-Đổi tên thành `MSSV_HoTen.md` sau khi xác nhận thông tin cá nhân.
-Giữ nguyên file mẫu `MSSV_HoTen.md`.
+# Báo cáo cá nhân — 2A202603862 - Đỗ Thanh Mai
 
 ## 1. Thông tin thành viên
 
-- Họ tên: Chờ xác nhận.
-- MSSV: Chờ xác nhận.
-- Email: Chờ xác nhận (Git hiện cấu hình thanhmaido24@gmail.com).
-- GitHub: Chờ xác nhận; không suy ra từ tài khoản chủ repo.
+- Họ tên: Đỗ Thanh Mai.
+- MSSV: 2A202603862.
+- Email: 26ai.maidt@vinuni.edu.vn
+- GitHub: (https://github.com/NgChiVinh/K5-L3B-DAY08-NhomTuesday-FromWorkflowsToAgents.git)
 
 ## 2. Phần việc phụ trách
 
@@ -32,7 +29,7 @@ khi hai shape được tích hợp.
 
 - Test bảo mật: 2 passed.
 - Cổng host: 56 passed, 248 deselected.
-- Người dùng đã chạy ma trận orchestrator: 62 passed.
+- Ma trận orchestrator: 62 passed.
 - Run id minh họa: `R-orchestrator-C-001-s11` (trace không commit).
 - Chi tiết rà soát và giới hạn: `orchestrator_security_review.md`.
 
@@ -46,4 +43,3 @@ trong repo. Không dùng API model thật, không tạo số liệu benchmark/hi
 
 Shape C đã có bằng chứng public và test bảo mật. Cần tiếp tục rà workflow và
 single sau integration; chưa kết luận về hidden hay lựa chọn kiến trúc của nhóm.
-Thông tin cá nhân cần được xác nhận trước khi nộp.
