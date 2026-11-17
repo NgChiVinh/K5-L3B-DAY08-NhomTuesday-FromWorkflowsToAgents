@@ -20,6 +20,7 @@
 - Sinh lại `src/reports/benchmark.json` bằng lệnh benchmark chuẩn với bốn shape, 14 claims và năm seed; mỗi shape có 70 trial.
 - Chạy crash suite và sinh `src/reports/crash.json`; kết quả là 20/20.
 - Cập nhật các báo cáo nhóm `report/team/decision_adr.md`, `report/team/research_card.md` và `report/team/group_report.md`.
+- Làm bonus B2: viết tagger MAST đọc benchmark và traces; thêm ba fault variant tổng hợp, 15 nhãn dự kiến, test Cohen's κ, và `report/team/bonus_report.md`.
 - Commit cá nhân: Chưa có; cần ghi hash sau khi commit các thay đổi của mình.
 
 ## 4. Bằng chứng
@@ -42,12 +43,14 @@ Kết quả trong `src/reports/benchmark.json`:
 - Run ID ví dụ trong benchmark: `R-workflow-C-001-s11`, `R-single-C-001-s11`, `R-orchestrator-C-001-s11`, `R-swarm-C-001-s11`.
 - Crash: `src/reports/crash.json` ghi `crash_safety = 20/20`.
 - Test metric và robustness: `python -m pytest -q tests/test_metrics.py tests/test_benchmark_robustness.py` — 6 passed.
-- Hidden benchmark chưa được chạy; không suy ra ngưỡng hidden từ benchmark public.
+- Bonus B2: `python -m pytest -q tests/test_bonus_mast_tag.py` — 5 passed; `src/reports/bonus_mast.json` gán một public fail vào task verification và phân loại 15 fault case có kiểm soát; agreement = 1.000, Cohen's κ = 1.000.
+- Hidden self-check: `python -m lab8.benchmark --shapes workflow,single,orchestrator --cases "C:\Users\HieuPC\Downloads\student_drop\student_drop\hidden_claims.jsonl" --world "C:\Users\HieuPC\Downloads\student_drop\student_drop\hidden_world_state.json" --seeds 11,22,33,44,55 --out reports/hidden_selfcheck.json`. Mỗi shape chạy 200 trial; `error_trials = 0`, `leak_suspect_trials = 0`. Dataset không có nhãn, nên kết quả này không phải pass rate hidden và không xác nhận ngưỡng 0.75/0.80.
 
 ## 5. Công cụ AI đã dùng
 
 - Copilot SDK trong VS Code hỗ trợ rà cấu trúc benchmark/metric, thêm test p95, chạy lệnh benchmark và soạn bản nháp báo cáo.
 - Tự kiểm tra bằng cách chạy lại benchmark chuẩn, đối chiếu các số trong JSON được sinh với bảng trên, chạy crash suite và chạy nhóm test metric/robustness.
+- Dùng `student_drop` chỉ ở chế độ self-check không nhãn; không dùng để suy đoán hay bịa điểm hidden.
 - Các số liệu nộp cần được nhóm kiểm tra lại trên commit cuối; không sửa tay JSON báo cáo.
 
 ## 6. Tự đánh giá

@@ -29,7 +29,9 @@ Benchmark công khai dùng 14 claim × 5 seed = 70 trial cho mỗi shape:
 
 Workflow/single/orchestrator đều 70/70 pass trên public; swarm 69/70, fail T02/C-002 ở seed 55 do quyết định không khớp nhãn khi delay trong ticket mâu thuẫn với order. Workflow đạt cùng pass rate với hai shape còn lại nhưng cost/success thấp nhất nên được chọn cho public benchmark. Không suy diễn kết quả public thành điểm hidden.
 
-Crash suite trong `src/reports/crash.json` đạt `crash_safety = 20/20`. Cổng host chạy `92 passed, 248 deselected`; toàn bộ ma trận student chạy `248 passed, 92 deselected`. `python -m lab8.check_submission` báo `0 FAIL, 1 WARN`; cảnh báo duy nhất là thay đổi chưa commit. Không có thư mục `student_drop/` trong workspace nên hidden self-check chưa chạy.
+Crash suite trong `src/reports/crash.json` đạt `crash_safety = 20/20`. Cổng host chạy `92 passed, 248 deselected`; toàn bộ ma trận student chạy `248 passed, 92 deselected`. Hidden self-check trong `src/reports/hidden_selfcheck.json` chạy 200 trial/shape (40 claims × 5 seeds) cho workflow, single và orchestrator: mỗi shape có 0 error trial và 0 leak-suspect trial. Vì bộ `student_drop` không có nhãn, self-check không tính pass rate hoặc approval bypass và không chứng minh ngưỡng hidden 0.75. `python -m lab8.check_submission` báo `0 FAIL, 1 WARN`; cảnh báo duy nhất là thay đổi chưa commit.
+
+Bonus B2 đã có tagger và fault-case report trong `src/bonus/` và `src/reports/bonus_mast.json`; 15 failure trace tổng hợp cùng một lỗi swarm public được gán nhãn, agreement = 1.000 và Cohen's κ = 1.000 trên bộ có kiểm soát. Đây là kiểm tra hẹp của các rule, không phải đánh giá độc lập/generalizable; xem `report/team/bonus_report.md`. Việc đạt bonus vẫn phụ thuộc vào hidden grade chính thức ≥ 0.80 và must-pass counts bằng 0.
 
 Quyết định kiến trúc và lý do: xem `report/team/decision_adr.md`. Phiếu nghiên cứu và ablation: xem `report/team/research_card.md`.
 
