@@ -80,7 +80,5 @@
   - Đọc lại code theo từng đoạn, đối chiếu với `docs/business_rules.md` và `docs/contracts.md`.
 
 ## 6. Tự đánh giá
+- Tôi phải thảo luận cùng với nhóm để phân chia kế hoạch làm bài, sau khi làm thì tìm hiểu về đề sau đó đưa ra hướng đi cho nhóm. Nhưng khi làm có lúc tôi và nhóm có lúc không hiểu vấn đề và tiếp tục để thảo luận. Nếu làm lại, tôi sẽ đọc kỹ đề hơn trước khi bắt đầu code.
 
-<!-- RULES.md: không dùng AI để viết phần tự đánh giá. Tự viết phần này. Gợi ý: điều bạn hiểu rõ / chưa rõ, việc làm tốt, việc làm chưa tốt, nếu làm lại sẽ khác gì. -->
-
-...
